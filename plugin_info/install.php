@@ -34,7 +34,7 @@ function instantInk_install() {
         log::add('instantInk', 'debug', 'Create cron pull');
     }
 
-    message::add('instantInk', 'Merci pour l\'installation du plugin HP InstantInk. Lisez bien la documentation avant utilisation et n\'hésitez pas à laisser un avis sur le Market Jeedom !');
+    message::add('instantInk', 'Merci pour l\'installation du plugin HP instantInk. Lisez bien la documentation avant utilisation et n\'hésitez pas à laisser un avis sur le Market Jeedom !');
 	
 }
 
@@ -60,7 +60,7 @@ function instantInk_update() {
         $eqLogic->save();
         log::add('instantInk', 'debug', 'Mise à jour des commandes effectuée pour l\'équipement '. $eqLogic->getHumanName());
     }
-	message::add('instantInk', 'Merci pour la mise à jour du plugin HP InstantInk. Consultez les notes de version avant utilisation et n\'hésitez pas à laisser un avis sur le Market Jeedom !');
+	message::add('instantInk', 'Merci pour la mise à jour du plugin HP instantInk. Consultez les notes de version avant utilisation et n\'hésitez pas à laisser un avis sur le Market Jeedom !');
 	
  }
 
@@ -73,7 +73,7 @@ function instantInk_remove() {
         log::add('instantInk', 'debug', 'Remove cron pull');
     }
 
-    message::add('instantInk', 'Le plugin HP InstantInk a été correctement désinstallé. N\'hésitez pas à laisser un avis sur le Market Jeedom !');
+    message::add('instantInk', 'Le plugin HP instantInk a été correctement désinstallé. N\'hésitez pas à laisser un avis sur le Market Jeedom !');
 
 }
 
