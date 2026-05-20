@@ -143,7 +143,8 @@
 }
 
 .line-ink{
-    width : 25px;
+    width : 30px;
 	margin-top :2px;
+	margin-left : -2px;
 	font-size : 12px;
 }

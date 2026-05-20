@@ -144,7 +144,8 @@
 }
 
 .line-ink{
-    width : 25px;
-	margin-top : 2px;
+    width : 30px;
+	margin-top :2px;
+	margin-left : -2px;
 	font-size : 12px;
 }
