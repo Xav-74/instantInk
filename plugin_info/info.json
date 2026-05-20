@@ -1,0 +1,38 @@
+{
+	"id" : "instantInk",
+	"name" : "HP InstantInk",
+	"description" : {
+		"fr_FR" : "Ce plugin vous permet de récupérer les informations de votre abonnement instantInk et de vos imprimantes HP."
+	},
+	"licence" : "AGPL",
+	"author" : "Xav-74",
+	"require" : "4.4",
+	"os": {
+		"min": 11
+	},
+	"category" : "devicecommunication",
+	"hasDependency" : false,
+	"hasOwnDeamon" : false,
+	"maxDependancyInstallTime" : 0,
+	"changelog" : "",
+	"changelog_beta" : "",
+	"documentation" : "",
+	"documentation_beta" : "",
+	"link" : {
+		"forum" : "",
+		"video" : ""
+	},
+	"language" : [
+		"fr_FR"
+	],
+	"compatibility" : [
+		"miniplus",
+		"smart",
+		"atlas",
+		"luna",
+		"rpi",
+		"docker",
+		"diy",
+		"v4"
+	]
+}

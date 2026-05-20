@@ -1,0 +1,259 @@
+<div id="instantInk_widget_flat_ID" class="eqLogic-widget eqLogic noResize instantInk_widget_flat instantInk_widget_flat_#id# instantInk" style="min-width:385px !important; max-width:385px !important; min-height:370px; max-height:370px; text-align:center; border:#border#; border-radius:#border-radius#; background-color:#background-color#; color:#color#; #style#;" data-eqType="#eqType#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="dashboard">
+
+	<div class="text-center widget-name">
+		<span class="reportModeVisible">#name_display# <span class="object_name">#object_name#</span></span>
+		<a href="#eqLink#" class="reportModeHidden" style="color:var(--eqTitle-color)!important;">#name_display# <span class="object_name">#object_name#</span></a>
+	   	<span class="cmd refresh pull-right cursor" data-cmd_id="#refresh_id#" onclick="jeedom.cmd.execute({id: #refresh_id#});">
+		   <i class="fas fa-sync" style="color:var(--eqTitle-color)!important;"></i>
+	   	</span>
+	</div>
+			
+	<div class="container-fluid">
+		
+		<div>
+			
+			<!-- Image -->
+			<div class="col-xs-6" id="tile" style="height:100px; width: 183px;">
+				<div id="picture" style="height: 100px; width:183px;"> 
+					<img id="img#id#" src="plugins/instantInk/data/#printer_id#id##.png"/>
+				</div>
+			</div>
+
+			<!-- Résumé -->
+			<div class="col-xs-6" id="tile" style="height:100px; width: 183px;">
+				<div class="col-xs-12" id="titre_tile" style="height:50px;">Résumé mensuel</div>
+				<div class="col-xs-12" id="value_tile" style="height:50px;"><span class="Cmd#period_id#"></span></div>
+			</div>
+
+			<!-- Forfait -->
+			<div class="col-xs-6" id="tile" style="height:100px; width: 183px;">
+				<div class="col-xs-12" id="titre_tile_2" style="height:40px;">Forfait</div>
+				<div class="col-xs-12" id="value_tile" style="height:16px;"><span class="Cmd#currentPlan_page_id#"></span>&nbsp;pages / mois</div>
+				<div class="col-xs-12" id="value_tile" style="height:16px;"><span class="Cmd#currentPlan_rollover_id#"></span></div>
+				<div class="col-xs-12" id="value_tile" style="height:16px;"><span class="Cmd#currentPlan_price_id#"></span></div>
+			</div>
+
+			<!-- Cartouches -->
+			<div class="col-xs-6" id="tile" style="height:100px; width: 183px;">
+				<div class="col-xs-12 progress-container-ink">
+					<div class="col-xs-3 progress-ink">
+						<div class="progress-bar-ink" id="progress-bar-ink_1">
+							<div class="level black" style="height:70%"></div>
+						</div>
+						<div class="line-ink"><span class="Cmd#cartridge_K_id#"></span></div>
+					</div>
+					<div class="col-xs-3 progress-ink">
+						<div class="progress-bar-ink" id="progress-bar-ink_2">
+							<div class="level cyan"></div>
+						</div>
+						<div class="line-ink"><span class="Cmd#cartridge_C_id#"></span></div>
+					</div>
+					<div class="col-xs-3 progress-ink">
+						<div class="progress-bar-ink" id="progress-bar-ink_3">
+							<div class="level magenta"></div>
+						</div>
+						<div class="line-ink"><span class="Cmd#cartridge_M_id#"></span></div>
+					</div>
+					<div class="col-xs-3 progress-ink">
+						<div class="progress-bar-ink" id="progress-bar-ink_4">
+							<div class="level yellow"></div>
+						</div>
+						<div class="line-ink"><span class="Cmd#cartridge_Y_id#"></span></div>
+					</div>
+				</div>							
+			</div>
+
+			<!-- Pages -->
+			<div class="col-xs-12" id="tile" style="height:100px; width:372px;">
+				<div class="col-xs-12 progress-container">
+					<div class="col-xs-6 line" style="justify-content: left">
+						<span>Pages du forfait</span>
+					</div>
+					<div class="col-xs-6 line" style="justify-content: right">
+						<span class="Cmd#billingCycle_page_id#"></span>&nbsp;sur&nbsp;<span class="Cmd#currentPlan_page_id#"></span>
+					</div>
+					<div class="progress" id="progress_1">
+						<div class="progress-bar"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 progress-container">
+					<div class="col-xs-6 line" style="justify-content: left">
+						<span>Pages de report</span>
+					</div>
+					<div class="col-xs-6 line" style="justify-content: right">
+						<span class="Cmd#billingCycle_rollover_id#"></span>&nbsp;sur&nbsp;<span class="Cmd#billingCycle_rollovermax_id#"></span>
+					</div>
+					<div class="progress" id="progress_2">
+						<div class="progress-bar"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Update -->
+			<div class="col-xs-12" style="height:25px; width:385px;">
+				<div id="last_update">Dernière mise à jour : <span class="Cmd#lastUpdate_id# state"></span></div>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	#divGraphInfo#
+	
+	<script>
+
+		//----- Theme colors & optional parameters
+		function setTheme#id#() {
+			var link = document.createElement('link');
+			link.type = 'text/css';
+			link.rel = 'stylesheet';
+			
+			if ($('body').attr('data-theme').endsWith('Dark')) {
+				link.href = 'plugins/instantInk/core/template/dashboard/instantInk_dashboard_style_dark.css';
+			}
+			else if ($('body').attr('data-theme').endsWith('Light')) {
+				link.href = 'plugins/instantInk/core/template/dashboard/instantInk_dashboard_style_light.css';
+			}
+			document.head.appendChild(link);
+		}
+
+		//----- Events
+		$('body').on('changeThemeEvent', function (event,theme) {
+			setTheme#id#();
+		});
+
+		//----- Initialization
+		function timedSetTheme#id#(occurence = 0){
+			if ($('.instantInk_widget_flat_#id#').length == 0) {
+				return;
+			}
+			if ( $('body')[0].hasAttribute('data-theme') != true )  {
+				occurence++;
+				if (occurence > 40){
+					return;
+				}
+				setTimeout( () => { timedSetTheme#id#(occurence); }, 500 );
+				return;
+			}
+			setTheme#id#();
+			updateDisplayDashboard#id#();
+		}
+		
+		if ( $('body')[0].hasAttribute('data-theme') == true )  {
+			setTheme#id#();
+			updateDisplayDashboard#id#();
+		}
+		else  {
+			timedSetTheme#id#(0);
+		}
+		
+		
+		//----- Dashboard display update
+		function updateDisplayDashboard#id#()  {
+	
+			//----- Period
+			jeedom.cmd.update['#period_id#'] =function(_options) {
+				if ( _options.display_value == 'NA' )  {
+					$('.Cmd#period_id#').empty().append('<span>'+'-'+'</span>');
+				}
+				else  {
+					$('.Cmd#period_id#').empty().append('<span>'+_options.display_value+'</span>');
+				}
+			}
+			jeedom.cmd.update['#period_id#']({display_value: '#period#'});
+
+			//----- Current Plan
+			jeedom.cmd.update['#currentPlan_page_id#'] =function(_options) {
+				$('.Cmd#currentPlan_page_id#').empty().append('<span>'+_options.display_value+'</span>');
+			}
+			jeedom.cmd.update['#currentPlan_page_id#']({display_value: '#currentPlan_page#'});
+
+			jeedom.cmd.update['#currentPlan_rollover_id#'] =function(_options) {
+				$('.Cmd#currentPlan_rollover_id#').empty().append('<span>'+'(Report max : '+_options.display_value+' pages / mois)'+'</span>');
+			}
+			jeedom.cmd.update['#currentPlan_rollover_id#']({display_value: '#currentPlan_rollover#'});
+
+			jeedom.cmd.update['#currentPlan_price_id#'] =function(_options) {
+				$('.Cmd#currentPlan_price_id#').empty().append('<span>'+_options.display_value+' € TTC / mois'+'</span>');
+			}
+			jeedom.cmd.update['#currentPlan_price_id#']({display_value: '#currentPlan_price#'});
+
+			//----- Billing Cycle
+			jeedom.cmd.update['#billingCycle_page_id#'] =function(_options) {
+				$('.Cmd#billingCycle_page_id#').empty().append('<span>'+_options.display_value+'</span>');
+				var ratio = parseInt('#billingCycle_page#',10) / parseInt('#currentPlan_page#',10) * 100;
+				$('#progress_1').empty().append('<div class="progress-bar" style="width: '+ratio+'%"></div>');
+			}
+			jeedom.cmd.update['#billingCycle_page_id#']({display_value: '#billingCycle_page#'});
+
+			jeedom.cmd.update['#billingCycle_rollover_id#'] =function(_options) {
+				$('.Cmd#billingCycle_rollover_id#').empty().append('<span>'+_options.display_value+'</span>');
+				var ratio = parseInt('#billingCycle_rollover#',10) / parseInt('#billingCycle_rollovermax#',10) * 100;
+				$('#progress_2').empty().append('<div class="progress-bar" style="width: '+ratio+'%"></div>');
+			}
+			jeedom.cmd.update['#billingCycle_rollover_id#']({display_value: '#billingCycle_rollover#'});
+
+			jeedom.cmd.update['#billingCycle_rollovermax_id#'] =function(_options) {
+				$('.Cmd#billingCycle_rollovermax_id#').empty().append('<span>'+_options.display_value+'</span>');
+			}
+			jeedom.cmd.update['#billingCycle_rollovermax_id#']({display_value: '#billingCycle_rollovermax#'});
+
+			//----- Cartridge
+			jeedom.cmd.update['#cartridge_K_id#'] =function(_options) {
+				if ( _options.display_value != '' && _options.display_value != null )  {
+					$('.Cmd#cartridge_K_id#').empty().append('<span>'+_options.display_value+'%</span>');
+					$('#progress-bar-ink_1').empty().append('<div class="level black" style="height: '+_options.display_value+'%"></div>');
+				}
+				else {
+					$('.Cmd#cartridge_K_id#').empty().append('<span>NA</span>');
+					$('#progress-bar-ink_1').empty().append('<div class="level black" style="height: 0%"></div>');
+				}
+			}
+			jeedom.cmd.update['#cartridge_K_id#']({display_value: '#cartridge_K#'});
+			
+			jeedom.cmd.update['#cartridge_C_id#'] =function(_options) {
+				if ( _options.display_value != '' && _options.display_value != null )  {
+					$('.Cmd#cartridge_C_id#').empty().append('<span>'+_options.display_value+'%</span>');
+					$('#progress-bar-ink_2').empty().append('<div class="level cyan" style="height: '+_options.display_value+'%"></div>');
+				}
+				else {
+					$('.Cmd#cartridge_C_id#').empty().append('<span>NA</span>');
+					$('#progress-bar-ink_2').empty().append('<div class="level cyan" style="height: 0%"></div>');
+				}
+			}
+			jeedom.cmd.update['#cartridge_C_id#']({display_value: '#cartridge_C#'});
+			
+			jeedom.cmd.update['#cartridge_M_id#'] =function(_options) {
+				if ( _options.display_value != '' && _options.display_value != null )  {
+					$('.Cmd#cartridge_M_id#').empty().append('<span>'+_options.display_value+'%</span>');
+					$('#progress-bar-ink_3').empty().append('<div class="level magenta" style="height: '+_options.display_value+'%"></div>');
+				}
+				else {
+					$('.Cmd#cartridge_M_id#').empty().append('<span>NA</span>');
+					$('#progress-bar-ink_3').empty().append('<div class="level magenta" style="height: 0%"></div>');
+				}
+			}
+			jeedom.cmd.update['#cartridge_M_id#']({display_value: '#cartridge_M#'});
+			
+			jeedom.cmd.update['#cartridge_Y_id#'] =function(_options) {
+				if ( _options.display_value != '' && _options.display_value != null )  {
+					$('.Cmd#cartridge_Y_id#').empty().append('<span>'+_options.display_value+'%</span>');
+					$('#progress-bar-ink_4').empty().append('<div class="level yellow" style="height: '+_options.display_value+'%"></div>');
+				}
+				else {
+					$('.Cmd#cartridge_Y_id#').empty().append('<span>NA</span>');
+					$('#progress-bar-ink_4').empty().append('<div class="level yellow" style="height: 0%"></div>');
+				}
+			}
+			jeedom.cmd.update['#cartridge_Y_id#']({display_value: '#cartridge_Y#'});
+			
+			//----- Last update
+			jeedom.cmd.update['#lastUpdate_id#'] = function(_options) {
+				$('.Cmd#lastUpdate_id#').empty().append('<span>'+_options.display_value+'</span>');
+			}
+			jeedom.cmd.update['#lastUpdate_id#']({display_value:'#lastUpdate#'});
+		}	
+
+	</script>
+
+</div>
