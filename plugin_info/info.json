@@ -1,6 +1,6 @@
 {
 	"id" : "instantInk",
-	"name" : "HP InstantInk",
+	"name" : "HP instantInk",
 	"description" : {
 		"fr_FR" : "Ce plugin vous permet de récupérer les informations de votre abonnement instantInk et de vos imprimantes HP."
 	},
