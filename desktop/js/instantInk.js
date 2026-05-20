@@ -112,6 +112,9 @@ $('#bt_sync').on('click', function () {
 
 			}
 			$('#div_alert').showAlert({message: '{{Synchronisation terminée avec succès}}', level: 'success'});
+			setTimeout(function () {
+				location.reload();
+			}, 2000);			
 		}
 	});
 });
