@@ -304,6 +304,7 @@ class instantInk extends eqLogic {
 			instantInk::addPrinter($json['name'], $json['printer_id'], $json['sku'], $json['image_url']);
 			log::add('instantInk', 'debug', '└─End of synchronise()');
 		}
+		return true;
 	}
 
 	public static function addPrinter($name, $printerId, $model, $img_url)
