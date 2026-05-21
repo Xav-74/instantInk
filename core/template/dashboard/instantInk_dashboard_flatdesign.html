@@ -1,4 +1,4 @@
-<div id="instantInk_widget_flat_ID" class="eqLogic-widget eqLogic noResize instantInk_widget_flat instantInk_widget_flat_#id# instantInk" style="min-width:385px !important; max-width:385px !important; min-height:370px; max-height:370px; text-align:center; border:#border#; border-radius:#border-radius#; background-color:#background-color#; color:#color#; #style#;" data-eqType="#eqType#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="dashboard">
+<div id="instantInk_widget_flat_ID" class="eqLogic-widget eqLogic noResize instantInk_widget_flat instantInk_widget_flat_#id# instantInk" style="min-width:385px !important; max-width:385px !important; min-height:420px; max-height:420px; text-align:center; border:#border#; border-radius:#border-radius#; background-color:#background-color#; color:#color#; #style#;" data-eqType="#eqType#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="dashboard">
 
 	<div class="text-center widget-name">
 		<span class="reportModeVisible">#name_display# <span class="object_name">#object_name#</span></span>
@@ -29,8 +29,8 @@
 			<div class="col-xs-6" id="tile" style="height:100px; width: 183px;">
 				<div class="col-xs-12" id="titre_tile_2" style="height:40px;">Forfait</div>
 				<div class="col-xs-12" id="value_tile" style="height:16px;"><span class="Cmd#currentPlan_page_id#"></span>&nbsp;pages / mois</div>
-				<div class="col-xs-12" id="value_tile" style="height:16px;"><span class="Cmd#currentPlan_rollover_id#"></span></div>
 				<div class="col-xs-12" id="value_tile" style="height:16px;"><span class="Cmd#currentPlan_price_id#"></span></div>
+				<div class="col-xs-12" id="value_tile" style="height:16px; margin-top: 5px !important;">Période : <span class="Cmd#billingCycle_price_id#"></span></div>
 			</div>
 
 			<!-- Cartouches -->
@@ -64,7 +64,7 @@
 			</div>
 
 			<!-- Pages -->
-			<div class="col-xs-12" id="tile" style="height:100px; width:372px;">
+			<div class="col-xs-12" id="tile" style="height:150px; width:372px;">
 				<div class="col-xs-12 progress-container">
 					<div class="col-xs-6 line" style="justify-content: left">
 						<span>Pages du forfait</span>
@@ -78,10 +78,21 @@
 				</div>
 				<div class="col-xs-12 progress-container">
 					<div class="col-xs-6 line" style="justify-content: left">
-						<span>Pages de report</span>
+						<span>Pages de report</span><span class="Cmd#currentPlan_rollover_id#"></span>
 					</div>
 					<div class="col-xs-6 line" style="justify-content: right">
 						<span class="Cmd#billingCycle_rollover_id#"></span>&nbsp;sur&nbsp;<span class="Cmd#billingCycle_rollovermax_id#"></span>
+					</div>
+					<div class="progress" id="progress_2">
+						<div class="progress-bar"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 progress-container">
+					<div class="col-xs-6 line" style="justify-content: left">
+						<span>Pages supplémentaires</span>
+					</div>
+					<div class="col-xs-6 line" style="justify-content: right">
+						<span class="Cmd#billingCycle_additional_id#"></span>&nbsp;sur&nbsp;<span class="Cmd#currentPlan_additional_id#"></span>
 					</div>
 					<div class="progress" id="progress_2">
 						<div class="progress-bar"></div>
@@ -169,12 +180,17 @@
 			jeedom.cmd.update['#currentPlan_page_id#']({display_value: '#currentPlan_page#'});
 
 			jeedom.cmd.update['#currentPlan_rollover_id#'] =function(_options) {
-				$('.Cmd#currentPlan_rollover_id#').empty().append('<span>'+'(Report max : '+_options.display_value+' pages / mois)'+'</span>');
+				$('.Cmd#currentPlan_rollover_id#').empty().append('<span>'+'&nbsp;(max '+_options.display_value+')'+'</span>');
 			}
 			jeedom.cmd.update['#currentPlan_rollover_id#']({display_value: '#currentPlan_rollover#'});
 
+			jeedom.cmd.update['#currentPlan_additional_id#'] =function(_options) {
+				$('.Cmd#currentPlan_additional_id#').empty().append('<span>'+_options.display_value+'</span>');
+			}
+			jeedom.cmd.update['#currentPlan_additional_id#']({display_value: '#currentPlan_additional#'});
+
 			jeedom.cmd.update['#currentPlan_price_id#'] =function(_options) {
-				$('.Cmd#currentPlan_price_id#').empty().append('<span>'+_options.display_value+' TTC / mois'+'</span>');
+				$('.Cmd#currentPlan_price_id#').empty().append('<span>'+_options.display_value+' / mois'+'</span>');
 			}
 			jeedom.cmd.update['#currentPlan_price_id#']({display_value: '#currentPlan_price#'});
 
@@ -193,10 +209,22 @@
 			}
 			jeedom.cmd.update['#billingCycle_rollover_id#']({display_value: '#billingCycle_rollover#'});
 
+			jeedom.cmd.update['#billingCycle_additional_id#'] =function(_options) {
+				$('.Cmd#billingCycle_additional_id#').empty().append('<span>'+_options.display_value+'</span>');
+				var ratio = parseInt('#billingCycle_additional#',10) / parseInt('#currentPlan_additional#',10) * 100;
+				$('#progress_2').empty().append('<div class="progress-bar" style="width: '+ratio+'%"></div>');
+			}
+			jeedom.cmd.update['#billingCycle_additional_id#']({display_value: '#billingCycle_additional#'});
+
 			jeedom.cmd.update['#billingCycle_rollovermax_id#'] =function(_options) {
 				$('.Cmd#billingCycle_rollovermax_id#').empty().append('<span>'+_options.display_value+'</span>');
 			}
 			jeedom.cmd.update['#billingCycle_rollovermax_id#']({display_value: '#billingCycle_rollovermax#'});
+
+			jeedom.cmd.update['#billingCycle_price_id#'] =function(_options) {
+				$('.Cmd#billingCycle_price_id#').empty().append('<span>'+_options.display_value+'</span>');
+			}
+			jeedom.cmd.update['#billingCycle_price_id#']({display_value: '#billingCycle_price#'});
 
 			//----- Cartridge
 			jeedom.cmd.update['#cartridge_K_id#'] =function(_options) {

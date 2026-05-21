@@ -121,6 +121,8 @@ class instantInk extends eqLogic {
 		$order++;
         $this->createCmd('currentPlan_rollover', __('Nombre pages max report plan', __FILE__), $order, 'info', 'numeric');
 		$order++;
+		$this->createCmd('currentPlan_additional', __('Nombre pages additionnelles max plan', __FILE__), $order, 'info', 'numeric');
+		$order++;
  		$this->createCmd('currentPlan_price', __('Prix plan', __FILE__), $order, 'info', 'string');
 		$order++;		
         $this->createCmd('period', __('Période', __FILE__), $order, 'info', 'string');
@@ -131,7 +133,11 @@ class instantInk extends eqLogic {
 		$order++;
         $this->createCmd('billingCycle_rollovermax', __('Nombre pages report max période', __FILE__), $order, 'info', 'numeric');
 		$order++;
- 		$this->createCmd('cartridge_K', __('Statut cartouche noire', __FILE__), $order, 'info', 'numeric');
+		$this->createCmd('billingCycle_additional', __('Nombre pages additionnelles imprimées période', __FILE__), $order, 'info', 'numeric');
+		$order++;
+		$this->createCmd('billingCycle_price', __('Prix période', __FILE__), $order, 'info', 'string');
+		$order++;
+        $this->createCmd('cartridge_K', __('Statut cartouche noire', __FILE__), $order, 'info', 'numeric');
 		$order++;
  		$this->createCmd('cartridge_C', __('Statut cartouche cyan', __FILE__), $order, 'info', 'numeric');
 		$order++;
@@ -358,17 +364,23 @@ class instantInk extends eqLogic {
 		
 		$data = $api->getInstantInkDataDashboard();
 		$json = json_decode($data->body, true);
-		$this->checkAndUpdateCmd('currentPlan_page', 			$json['currentPlan']['pages'] ?? 0);
+		/*$this->checkAndUpdateCmd('currentPlan_page', 			$json['currentPlan']['pages'] ?? 0);
 		$this->checkAndUpdateCmd('currentPlan_price', 			$json['currentPlan']['price'] ?? '');
-		$this->checkAndUpdateCmd('currentPlan_rollover', 		$json['currentPlan']['rollover'] ?? 0);
+		$this->checkAndUpdateCmd('currentPlan_rollover', 		$json['currentPlan']['rollover'] ?? 0);*/
 		$this->checkAndUpdateCmd('period', 						$json['billingCycleSelectionList'][0]['label'] ?? '');
  		$id = $json['billingCycleSelectionList'][0]['id'];
 
 		$data2 = $api->getInstantInkDataBillingCycle($id);
 		$json2 = json_decode($data2->body, true);
+		$this->checkAndUpdateCmd('currentPlan_page', 			$json2['plan']['pages'] ?? 0);
+		$this->checkAndUpdateCmd('currentPlan_price', 			$json2['plan']['price'] ?? '');
+		$this->checkAndUpdateCmd('currentPlan_rollover', 		$json2['plan']['rollover_cap'] ?? 0);
+		$this->checkAndUpdateCmd('currentPlan_additional', 		$json2['plan']['overage_block_size'] ?? 0);
 		$this->checkAndUpdateCmd('billingCycle_page', 			$json2['totals']['regular_pages'] ?? 0);
 		$this->checkAndUpdateCmd('billingCycle_rollover', 		$json2['totals']['rollover_pages'] ?? 0);
 		$this->checkAndUpdateCmd('billingCycle_rollovermax', 	$json2['totals']['initial_rollover_pages'] ?? 0);
+		$this->checkAndUpdateCmd('billingCycle_additional', 	$json2['totals']['additional_pages'] ?? 0);
+		$this->checkAndUpdateCmd('billingCycle_price', 			$json2['totals']['total_price'] ?? 0);
 
 		/*$data3 = $api->getInstantInkDataInkStatus();
 		$json3 = json_decode($data3->body);
