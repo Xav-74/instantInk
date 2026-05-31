@@ -25,16 +25,16 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<span>{{Ajouter}}</span>
 					</div>-->
 
+					<div class="cursor logoSecondary" id="bt_sync" style="color:#3a5a7a">
+						<i class="fas fa-sync"></i>
+						<br>
+						<span style="color:#3a5a7a">{{Synchroniser}}</span>
+					</div>
+					
 					<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
 						<i class="fas fa-wrench"></i>
 						<br>
 						<span>{{Configuration}}</span>
-					</div>
-
-					<div class="cursor logoSecondary" id="bt_sync">
-						<i class="fas fa-sync"></i>
-						<br>
-						<span>{{Synchroniser}}</span>
 					</div>
 										
 					<!--Bouton Community-->
