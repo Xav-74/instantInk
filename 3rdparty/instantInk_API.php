@@ -349,7 +349,7 @@ class instantInk_API
         
         $result = $this->_request($method, $url, $headers);
                         
-        log::add('instantInk', 'debug', '| Result getInstantInkDataDashboard() : ['.$result->httpCode.'] '.$result->body);
+        //log::add('instantInk', 'debug', '| Result getInstantInkDataDashboard() : ['.$result->httpCode.'] '.$result->body);
         return $result;
     }
 
@@ -363,7 +363,7 @@ class instantInk_API
         
         $result = $this->_request($method, $url, $headers);
                         
-        log::add('instantInk', 'debug', '| Result getInstantInkDataBillingCycle() : ['.$result->httpCode.'] '.$result->body);
+        //log::add('instantInk', 'debug', '| Result getInstantInkDataBillingCycle() : ['.$result->httpCode.'] '.$result->body);
         return $result;
     }
     

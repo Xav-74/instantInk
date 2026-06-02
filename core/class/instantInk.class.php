@@ -51,6 +51,18 @@ class instantInk extends eqLogic {
 		}	
 	}
 
+	public static function cronDaily() {
+        
+        log::add('instantInk', 'debug', 'CronDaily');
+		foreach (eqLogic::byType('instantInk', true) as $instantInk) {
+			$cmdHistory = $instantInk->getCmd(null, 'getHistory');		
+			if (!is_object($cmdHistory) ) {
+			  	continue;
+			}
+			$cmdHistory->execCmd(); 
+		}
+	}
+
 	public static function getConfigForCommunity()
 	{
 		$index = 1;
@@ -147,8 +159,12 @@ class instantInk extends eqLogic {
 		$order++;
 		$this->createCmd('lastUpdate', 'Dernière mise à jour', $order, 'info', 'string');
 		$order++;
+		$this->createCmd('history', 'Historique', $order, 'info', 'string');
+		$order++;
         
 		$this->createCmd('refresh', __('Rafraichir', __FILE__), $order, 'action', 'other');
+		$order++;
+		$this->createCmd('getHistory', __('Obtenir historique', __FILE__), $order, 'action', 'other');
 	}
 
 	/* fonction appelée pendant la séquence de sauvegarde avant l'insertion 
@@ -291,7 +307,7 @@ class instantInk extends eqLogic {
 
 	public static function synchronize()
     {
-		log::add('instantInk', 'debug', '┌─Command execution : synchronize');
+		log::add('instantInk', 'debug', '┌─Command execution : synchronize()');
 		$sessionId = config::byKey('sessionId', 'instantInk');
         if (!$sessionId) {
 			log::add('instantInk', 'debug', '| shellSessionId missing. Please configure the plugin');
@@ -357,7 +373,8 @@ class instantInk extends eqLogic {
 			throw new Exception('shellSessionId missing. Please configure the plugin');
 		}
 		$IPaddress = $this->getConfiguration('IPaddress');
-		
+		log::add('instantInk', 'debug', '| printerId : '.$this->getConfiguration('printerId'));
+
 		//instantInk_API
         $api = new instantInk_API($sessionId);
         $myConnection = $api->connection();
@@ -369,6 +386,7 @@ class instantInk extends eqLogic {
 		$this->checkAndUpdateCmd('currentPlan_rollover', 		$json['currentPlan']['rollover'] ?? 0);*/
 		$this->checkAndUpdateCmd('period', 						$json['billingCycleSelectionList'][0]['label'] ?? '');
  		$id = $json['billingCycleSelectionList'][0]['id'];
+		log::add('instantInk', 'debug', '| Result getInstantInkDataDashboard() : ['.$data->httpCode.'] '.$data->body);
 
 		$data2 = $api->getInstantInkDataBillingCycle($id);
 		$json2 = json_decode($data2->body, true);
@@ -381,6 +399,7 @@ class instantInk extends eqLogic {
 		$this->checkAndUpdateCmd('billingCycle_rollovermax', 	$json2['totals']['initial_rollover_pages'] ?? 0);
 		$this->checkAndUpdateCmd('billingCycle_additional', 	$json2['totals']['additional_pages'] ?? 0);
 		$this->checkAndUpdateCmd('billingCycle_price', 			$json2['totals']['total_price'] ?? 0);
+		log::add('instantInk', 'debug', '| Result getInstantInkDataBillingCycle() : ['.$data2->httpCode.'] '.$data2->body);
 
 		/*$data3 = $api->getInstantInkDataInkStatus();
 		$json3 = json_decode($data3->body);
@@ -447,9 +466,47 @@ class instantInk extends eqLogic {
 		else { 
 			 $httpCode =
         		$data->httpCode != '200' ? $data->httpCode : ($data2->httpCode);
-		 }
+		}
 
 		log::add('instantInk', $this->getLogLevelFromHttpStatus($httpCode, '200'), '└─End of refreshInstantInkData() : ['.$httpCode.']');
+	}
+
+	public function getHistory()
+    {
+ 		log::add('instantInk', 'debug', '| printerId : '.$this->getConfiguration('printerId'));
+		$sessionId = config::byKey('sessionId', 'instantInk');
+        if (!$sessionId) {
+			log::add('instantInk', 'debug', '| shellSessionId missing. Please configure the plugin');
+			throw new Exception('shellSessionId missing. Please configure the plugin');
+		}
+
+		$api = new instantInk_API($sessionId);
+        $myConnection = $api->connection();
+		$history = array();
+
+		$data = $api->getInstantInkDataDashboard();
+		$json = json_decode($data->body, true);
+		$cycles = $json['billingCycleSelectionList'] ?? [];
+		$nbCycle = min(count($cycles), 12);
+		
+		for ($i=1; $i <= $nbCycle; $i++) {
+			$id = $cycles[$i]['id'];
+			$data2 = $api->getInstantInkDataBillingCycle($id);
+			$json2 = json_decode($data2->body, true);
+			
+			$history[] = array(
+				"period"	=> $cycles[$i]['label'],
+				"pages"		=> $json2['totals']['total_pages'] ?? null,
+				"price"		=> $json2['totals']['total_price'] ?? null
+			);
+		}
+		
+		$history = array_reverse($history);
+		$json_history = json_encode($history, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+		$this->checkAndUpdateCmd('history', $json_history);
+		
+		log::add('instantInk', 'debug', '| Result getHistory() : '.$json_history);		
+		log::add('instantInk', $this->getLogLevelFromHttpStatus($data->httpCode, '200'), '└─End of getHistory() : ['.$data->httpCode.']');
 	}
 }
 
@@ -479,6 +536,9 @@ class instantInkCmd extends cmd {
             switch ($logical) {
                 case 'refresh':
                     $eqLogic->refreshInstantInkData();
+					break;
+				case 'getHistory':
+					$eqLogic->getHistory();
 					break;
                 default:
                     throw new \Exception("Unknown command", 1);

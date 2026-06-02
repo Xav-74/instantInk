@@ -149,3 +149,13 @@
 	margin-left : -2px;
 	font-size : 12px;
 }
+
+.highcharts-root {
+	font-family: Roboto !important;
+}
+
+.highcharts-title {
+	font-size: 20px !important;
+	fill : var(--txt-color) !important;
+	font-weight : bold;
+}
