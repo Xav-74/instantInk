@@ -3,11 +3,6 @@
 	"name": "HP instantInk",
 	"description": {
 		"fr_FR": "Ce plugin vous permet de récupérer les informations de votre abonnement instantInk et de vos imprimantes HP.",
-		"en_US": "",
-		"es_ES": "",
-		"de_DE": "",
-		"it_IT": "",
-		"pt_PT": ""
 	},
 	"licence": "AGPL",
 	"author": "Xav-74",
