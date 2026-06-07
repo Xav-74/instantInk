@@ -1,0 +1,57 @@
+{
+    "plugins\/instantInk\/core\/ajax\/instantInk.ajax.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado"
+    },
+    "plugins\/instantInk\/core\/class\/instantInk.class.php": {
+        "Historique": "Histórico",
+        "Période": "Período",
+        "Rafraichir": "Recarregar"
+    },
+    "plugins\/instantInk\/core\/template\/dashboard\/instantInk_dashboard_flatdesign.html": {
+        "Période": "Período"
+    },
+    "plugins\/instantInk\/desktop\/js\/instantInk.js": {
+        "Afficher": "Mostrar",
+        "Historiser": "Histórico",
+        "Inverser": "Inverter",
+        "Tester": "Testar",
+        "Valeur": "Valor"
+    },
+    "plugins\/instantInk\/desktop\/php\/instantInk.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Action": "Ação",
+        "Activer": "Ativar",
+        "Ajouter": "Adicionar",
+        "Aucun": "Nenhum",
+        "Catégorie": "Categoria",
+        "Commandes": "Comandos",
+        "Commentaire": "Comentário",
+        "Configuration": "Configuração",
+        "Configuration avancée": "Configuração avançada",
+        "Dupliquer": "Duplicar",
+        "Gestion": "Gestão",
+        "ID": "EU IRIA",
+        "Image": "Imagem",
+        "Informations": "Informação",
+        "Logical ID": "ID lógico",
+        "Nom": "Nome",
+        "Objet parent": "Objeto pai",
+        "Options": "Opções",
+        "Ouvrir une demande d\\'aide sur le forum communautaire": "Abra um pedido de ajuda no fórum da comunidade",
+        "Rechercher": "Pesquisar",
+        "Sauvegarder": "Guardar",
+        "Supprimer": "Eliminar",
+        "Synchroniser": "Sincronizar",
+        "Type": "Tipo",
+        "Valeur": "Valor",
+        "Visible": "Visível"
+    },
+    "plugins\/instantInk\/plugin_info\/configuration.php": {
+        "Assistant cron": "Assistente de cron",
+        "Chargement...": "A carregar...",
+        "Connexion": "Entrar",
+        "Erreur": "Erro",
+        "Statut": "Estado",
+        "ou": "onde"
+    }
+}

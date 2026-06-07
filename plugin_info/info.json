@@ -1,31 +1,36 @@
 {
-	"id" : "instantInk",
-	"name" : "HP instantInk",
-	"description" : {
-		"fr_FR" : "Ce plugin vous permet de récupérer les informations de votre abonnement instantInk et de vos imprimantes HP."
+	"id": "instantInk",
+	"name": "HP instantInk",
+	"description": {
+		"fr_FR": "Ce plugin vous permet de récupérer les informations de votre abonnement instantInk et de vos imprimantes HP."
 	},
-	"licence" : "AGPL",
-	"author" : "Xav-74",
-	"require" : "4.4",
+	"licence": "AGPL",
+	"author": "Xav-74",
+	"require": "4.4",
 	"os": {
 		"min": 11
 	},
-	"category" : "devicecommunication",
-	"hasDependency" : false,
-	"hasOwnDeamon" : false,
-	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://xav-74.github.io/Documentation/instantInk/fr_FR/changelog",
-	"changelog_beta" : "https://xav-74.github.io/Documentation/instantInk/fr_FR/changelog",
-	"documentation" : "https://xav-74.github.io/Documentation/instantInk/fr_FR/",
-	"documentation_beta" : "https://xav-74.github.io/Documentation/instantInk/fr_FR/",
-	"link" : {
-		"forum" : "",
-		"video" : ""
+	"category": "devicecommunication",
+	"hasDependency": false,
+	"hasOwnDeamon": false,
+	"maxDependancyInstallTime": 0,
+	"changelog": "https://xav-74.github.io/Documentation/instantInk/fr_FR/changelog",
+	"changelog_beta": "https://xav-74.github.io/Documentation/instantInk/fr_FR/changelog",
+	"documentation": "https://xav-74.github.io/Documentation/instantInk/fr_FR/",
+	"documentation_beta": "https://xav-74.github.io/Documentation/instantInk/fr_FR/",
+	"link": {
+		"forum": "",
+		"video": ""
 	},
-	"language" : [
-		"fr_FR"
+	"language": [
+		"de_DE",
+		"en_US",
+		"es_ES",
+		"fr_FR",
+		"it_IT",
+		"pt_PT"
 	],
-	"compatibility" : [
+	"compatibility": [
 		"miniplus",
 		"smart",
 		"atlas",
