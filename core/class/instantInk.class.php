@@ -157,9 +157,9 @@ class instantInk extends eqLogic {
 		$order++;
 		$this->createCmd('cartridge_Y', __('Statut cartouche jaune', __FILE__), $order, 'info', 'numeric');
 		$order++;
-		$this->createCmd('lastUpdate', 'Dernière mise à jour', $order, 'info', 'string');
+		$this->createCmd('lastUpdate', __('Dernière mise à jour', __FILE__), $order, 'info', 'string');
 		$order++;
-		$this->createCmd('history', 'Historique', $order, 'info', 'string');
+		$this->createCmd('history', __('Historique', __FILE__), $order, 'info', 'string');
 		$order++;
         
 		$this->createCmd('refresh', __('Rafraichir', __FILE__), $order, 'action', 'other');

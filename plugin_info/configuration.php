@@ -60,7 +60,7 @@ if (!isConnect()) {
                             <li>{{Dans le panneau latéral :}} <kbd>Cookies</kbd>
                                 → <kbd>https://portal.hpsmart.com</kbd></li>
                             <li>{{Trouvez le cookie}} <kbd>shell-session-id</kbd>
-                                {{et copiez sa valeur complète.}}</li>
+                                {{et copiez sa valeur complète}}</li>
                             <li>{{Collez-la dans le champ ci-dessus et cliquez sur}}
                                 <kbd>{{Connexion}}</kbd></li>
                         </ol>

@@ -14,10 +14,10 @@
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "",
-	"changelog_beta" : "",
-	"documentation" : "",
-	"documentation_beta" : "",
+	"changelog" : "https://xav-74.github.io/Documentation/instantInk/fr_FR/changelog",
+	"changelog_beta" : "https://xav-74.github.io/Documentation/instantInk/fr_FR/changelog",
+	"documentation" : "https://xav-74.github.io/Documentation/instantInk/fr_FR/",
+	"documentation_beta" : "https://xav-74.github.io/Documentation/instantInk/fr_FR/",
 	"link" : {
 		"forum" : "",
 		"video" : ""
