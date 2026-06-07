@@ -1,0 +1,57 @@
+{
+    "plugins\/instantInk\/core\/ajax\/instantInk.ajax.php": {
+        "401 - Accès non autorisé": "401 - Unauthorized access"
+    },
+    "plugins\/instantInk\/core\/class\/instantInk.class.php": {
+        "Historique": "History",
+        "Période": "Period",
+        "Rafraichir": "Refresh"
+    },
+    "plugins\/instantInk\/core\/template\/dashboard\/instantInk_dashboard_flatdesign.html": {
+        "Période": "Period"
+    },
+    "plugins\/instantInk\/desktop\/js\/instantInk.js": {
+        "Afficher": "Show",
+        "Historiser": "Historize",
+        "Inverser": "Invert",
+        "Tester": "Test",
+        "Valeur": "Value"
+    },
+    "plugins\/instantInk\/desktop\/php\/instantInk.php": {
+        "401 - Accès non autorisé": "401 - Unauthorized access",
+        "Action": "Action",
+        "Activer": "Enable",
+        "Ajouter": "Add",
+        "Aucun": "None",
+        "Catégorie": "Category",
+        "Commandes": "Commands",
+        "Commentaire": "Comment",
+        "Configuration": "Configuration",
+        "Configuration avancée": "Advanced configuration",
+        "Dupliquer": "Duplicate",
+        "Gestion": "Management",
+        "ID": "ID",
+        "Image": "Picture",
+        "Informations": "Information",
+        "Logical ID": "Logical ID",
+        "Nom": "Name",
+        "Objet parent": "Parent object",
+        "Options": "Options",
+        "Ouvrir une demande d\\'aide sur le forum communautaire": "Open a help request on the community forum",
+        "Rechercher": "Search",
+        "Sauvegarder": "Save",
+        "Supprimer": "Delete",
+        "Synchroniser": "Synchronize",
+        "Type": "Kind",
+        "Valeur": "Value",
+        "Visible": "Visible"
+    },
+    "plugins\/instantInk\/plugin_info\/configuration.php": {
+        "Assistant cron": "Cron assistant",
+        "Chargement...": "Loading...",
+        "Connexion": "Connection",
+        "Erreur": "Error",
+        "Statut": "Status",
+        "ou": "or"
+    }
+}

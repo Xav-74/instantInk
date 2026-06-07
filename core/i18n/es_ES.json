@@ -1,0 +1,57 @@
+{
+    "plugins\/instantInk\/core\/ajax\/instantInk.ajax.php": {
+        "401 - Accès non autorisé": "401 - Acceso no autorizado"
+    },
+    "plugins\/instantInk\/core\/class\/instantInk.class.php": {
+        "Historique": "Historial",
+        "Période": "Período",
+        "Rafraichir": "Refrescar"
+    },
+    "plugins\/instantInk\/core\/template\/dashboard\/instantInk_dashboard_flatdesign.html": {
+        "Période": "Período"
+    },
+    "plugins\/instantInk\/desktop\/js\/instantInk.js": {
+        "Afficher": "Mostrar",
+        "Historiser": "Guardar historial",
+        "Inverser": "Invertir",
+        "Tester": "Probar",
+        "Valeur": "Valor"
+    },
+    "plugins\/instantInk\/desktop\/php\/instantInk.php": {
+        "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Action": "Acción",
+        "Activer": "Activar",
+        "Ajouter": "Agregar",
+        "Aucun": "Ninguno",
+        "Catégorie": "Categoría",
+        "Commandes": "Comandos",
+        "Commentaire": "Comentario",
+        "Configuration": "Configuración ",
+        "Configuration avancée": "Configuración avanzada",
+        "Dupliquer": "Duplicar",
+        "Gestion": "Administración",
+        "ID": "IDENTIFICACIÓN",
+        "Image": "Imagen",
+        "Informations": "Información",
+        "Logical ID": "Identificación lógica",
+        "Nom": "Nombre",
+        "Objet parent": "Objeto padre",
+        "Options": "Opciones",
+        "Ouvrir une demande d\\'aide sur le forum communautaire": "Abrir una solicitud de ayuda en el foro de la comunidad",
+        "Rechercher": "Buscar",
+        "Sauvegarder": "Para salvaguardar",
+        "Supprimer": "Eliminar",
+        "Synchroniser": "Sincronizar",
+        "Type": "Tipo",
+        "Valeur": "Valor",
+        "Visible": "Visible"
+    },
+    "plugins\/instantInk\/plugin_info\/configuration.php": {
+        "Assistant cron": "Asistente cron",
+        "Chargement...": "Cargando ...",
+        "Connexion": "Conexión",
+        "Erreur": "Error",
+        "Statut": "Estado",
+        "ou": "o"
+    }
+}

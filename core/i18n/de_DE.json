@@ -1,0 +1,57 @@
+{
+    "plugins\/instantInk\/core\/ajax\/instantInk.ajax.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff"
+    },
+    "plugins\/instantInk\/core\/class\/instantInk.class.php": {
+        "Historique": "Chronik",
+        "Période": "Zeitraum",
+        "Rafraichir": "Auffrischen"
+    },
+    "plugins\/instantInk\/core\/template\/dashboard\/instantInk_dashboard_flatdesign.html": {
+        "Période": "Zeitraum"
+    },
+    "plugins\/instantInk\/desktop\/js\/instantInk.js": {
+        "Afficher": "Anzeige",
+        "Historiser": "Chronik",
+        "Inverser": "Umgekehrt",
+        "Tester": "Prüfung",
+        "Valeur": "Wert"
+    },
+    "plugins\/instantInk\/desktop\/php\/instantInk.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
+        "Action": "Aktion",
+        "Activer": "Aktivieren",
+        "Ajouter": "Addieren",
+        "Aucun": "Nein",
+        "Catégorie": "Kategorie",
+        "Commandes": "Befehle",
+        "Commentaire": "Kommentar",
+        "Configuration": "Konfiguration",
+        "Configuration avancée": "Erweiterte Konfiguration",
+        "Dupliquer": "Duplikat",
+        "Gestion": "Management",
+        "ID": "Identifikation",
+        "Image": "Bild",
+        "Informations": "Information",
+        "Logical ID": "Logische ID",
+        "Nom": "Name",
+        "Objet parent": "Übergeordnetes Objekt",
+        "Options": "Optionen",
+        "Ouvrir une demande d\\'aide sur le forum communautaire": "Öffnen Sie eine Hilfeanfrage im Community-Forum",
+        "Rechercher": "Suchen nach",
+        "Sauvegarder": "Zu schützen",
+        "Supprimer": "Entfernen",
+        "Synchroniser": "Synchronisieren",
+        "Type": "Typ",
+        "Valeur": "Wert",
+        "Visible": "Sichtbar"
+    },
+    "plugins\/instantInk\/plugin_info\/configuration.php": {
+        "Assistant cron": "Cron Assistent",
+        "Chargement...": "Wird geladen ...",
+        "Connexion": "Einloggen",
+        "Erreur": "Fehler",
+        "Statut": "Status",
+        "ou": "oder"
+    }
+}

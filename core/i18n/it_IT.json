@@ -1,0 +1,57 @@
+{
+    "plugins\/instantInk\/core\/ajax\/instantInk.ajax.php": {
+        "401 - Accès non autorisé": "401 - Accesso non autorizzato"
+    },
+    "plugins\/instantInk\/core\/class\/instantInk.class.php": {
+        "Historique": "Storico",
+        "Période": "Période",
+        "Rafraichir": "Aggiorna"
+    },
+    "plugins\/instantInk\/core\/template\/dashboard\/instantInk_dashboard_flatdesign.html": {
+        "Période": "Période"
+    },
+    "plugins\/instantInk\/desktop\/js\/instantInk.js": {
+        "Afficher": "Mostra",
+        "Historiser": "Storicizza",
+        "Inverser": "Inverti",
+        "Tester": "Prova",
+        "Valeur": "Valore"
+    },
+    "plugins\/instantInk\/desktop\/php\/instantInk.php": {
+        "401 - Accès non autorisé": "401 - Accesso non autorizzato",
+        "Action": "Azione",
+        "Activer": "Attivare",
+        "Ajouter": "Ajouter",
+        "Aucun": "Nessuno",
+        "Catégorie": "Categoria",
+        "Commandes": "Comandi",
+        "Commentaire": "Commento",
+        "Configuration": "Configurazione",
+        "Configuration avancée": "Configurazione avanzata",
+        "Dupliquer": "Duplicato",
+        "Gestion": "Gestione",
+        "ID": "ID",
+        "Image": "Immagine",
+        "Informations": "Informazioni",
+        "Logical ID": "ID logico",
+        "Nom": "Nome",
+        "Objet parent": "Oggetto padre",
+        "Options": "Opzioni",
+        "Ouvrir une demande d\\'aide sur le forum communautaire": "Ouvrir une demande d\\'aide sur le forum communautaire",
+        "Rechercher": "Ricercare",
+        "Sauvegarder": "Sauvegarder",
+        "Supprimer": "Supprimer",
+        "Synchroniser": "Sincronizzare",
+        "Type": "Tipo",
+        "Valeur": "Valore",
+        "Visible": "Visibile"
+    },
+    "plugins\/instantInk\/plugin_info\/configuration.php": {
+        "Assistant cron": "Assistente Cron",
+        "Chargement...": "Caricamento in corso ...",
+        "Connexion": "Connessione",
+        "Erreur": "Errore",
+        "Statut": "Stato",
+        "ou": "o"
+    }
+}
