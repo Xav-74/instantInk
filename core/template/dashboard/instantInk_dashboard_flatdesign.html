@@ -331,11 +331,11 @@
 					formatter: function() {
 						var tooltipContent = '<span style="font-size: 10px; color:' + this.series.color + '"></span>';
 						var periodValue = this.x;
-						tooltipContent += 'Période : ' + periodValue;
+						tooltipContent += '{{Période : }}' + periodValue;
 						var pagesValue = this.y;
-						tooltipContent += '<br>Pages : ' + pagesValue;						
+						tooltipContent += '<br>{{Pages : }}' + pagesValue;						
 						var priceValue = history_price[this.point.index];
-						tooltipContent += '<br>Prix : ' + priceValue;
+						tooltipContent += '<br>{{Prix : }}' + priceValue;
 						return tooltipContent;
 					}
 				},
