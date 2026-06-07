@@ -221,7 +221,10 @@ class instantInk extends eqLogic {
 		$template = 'instantInk_dashboard_flatdesign';
 		$replace['#template#'] = $template;
 
-		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, $template, 'instantInk')));
+		$filepath = 'plugins/'.__CLASS__.'/core/template/'.$version.'/'.$template.'.html';
+        $html = template_replace($replace, getTemplate('core', $version, $template, 'instantInk'));
+        $html = translate::exec($html, $filepath);
+        return $this->postToHtml($_version, $html);
 	}
     
     /* Non obligatoire mais ca permet de déclencher une action après modification de variable de configuration
