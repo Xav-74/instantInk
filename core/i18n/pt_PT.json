@@ -28,11 +28,13 @@
         "Abonnement": "Assinatura",
         "Dernière mise à jour : ": "Última atualização: ",
         "Historique annuel": "Histórico anual",
+        "Obtenir historique": "Obter histórico",
         "Pages de l'abonnement": "Páginas da assinatura",
         "Pages de report": "Páginas de relatório",
         "Pages supplémentaires": "Páginas adicionais",
         "Période": "Período",
         "Période : ": "Período: ",
+        "Rafraichir": "Recarregar",
         "pages \/ mois": "páginas \/ mês"
     },
     "plugins\/instantInk\/desktop\/js\/instantInk.js": {
