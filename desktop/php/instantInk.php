@@ -185,7 +185,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								
 								<legend><i class="fas fa-cogs"></i> {{Paramètres de l'imprimante}}</legend>
 								<div id="div_user" class="form-group">						
-									<label class="col-sm-6 control-label">Adresse IP locale</label>
+									<label class="col-sm-6 control-label">{{Adresse IP locale}}</label>
 									<div id="div_id" class="col-sm-6">
 										<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="IPaddress" placeholder="192.168.x.x / 10.x.x.x" value="">
 									</div>
