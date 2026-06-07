@@ -28,11 +28,13 @@
         "Abonnement": "Suscripción",
         "Dernière mise à jour : ": "Última actualización: ",
         "Historique annuel": "Historial anual",
+        "Obtenir historique": "Ver historial",
         "Pages de l'abonnement": "Páginas de la suscripción",
         "Pages de report": "Páginas de informe",
         "Pages supplémentaires": "Páginas adicionales",
         "Période": "Período",
         "Période : ": "Periodo: ",
+        "Rafraichir": "Refrescar",
         "pages \/ mois": "páginas \/ mes"
     },
     "plugins\/instantInk\/desktop\/js\/instantInk.js": {

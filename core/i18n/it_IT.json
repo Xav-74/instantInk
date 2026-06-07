@@ -28,11 +28,13 @@
         "Abonnement": "Abbonamento",
         "Dernière mise à jour : ": "Ultimo aggiornamento: ",
         "Historique annuel": "Cronologia annuale",
+        "Obtenir historique": "Visualizza cronologia",
         "Pages de l'abonnement": "Pagine dell'abbonamento",
         "Pages de report": "Pagine di riporto",
         "Pages supplémentaires": "Pagine aggiuntive",
         "Période": "Période",
         "Période : ": "Periodo: ",
+        "Rafraichir": "Aggiorna",
         "pages \/ mois": "pagine \/ mese"
     },
     "plugins\/instantInk\/desktop\/js\/instantInk.js": {
