@@ -38,67 +38,67 @@
 
 			<!-- Cartouches -->
 			<div class="col-xs-6" id="tile" style="height:100px; width: 183px;">
-				<div class="col-xs-12 progress-container-ink">
-					<div class="col-xs-3 progress-ink">
-						<div class="progress-bar-ink" id="progress-bar-ink_1">
-							<div class="level black" style="height:70%"></div>
+				<div class="col-xs-12 instantInk_progress-container-ink">
+					<div class="col-xs-3 instantInk_progress-ink">
+						<div class="instantInk_progress-bar-ink" id="instantInk_progress-bar-ink_1">
+							<div class="instantInk_level instantInk_black" style="height:70%"></div>
 						</div>
-						<div class="line-ink"><span class="Cmd#cartridge_K_id#"></span></div>
+						<div class="instantInk_line-ink"><span class="Cmd#cartridge_K_id#"></span></div>
 					</div>
-					<div class="col-xs-3 progress-ink">
-						<div class="progress-bar-ink" id="progress-bar-ink_2">
-							<div class="level cyan"></div>
+					<div class="col-xs-3 instantInk_progress-ink">
+						<div class="instantInk_progress-bar-ink" id="instantInk_progress-bar-ink_2">
+							<div class="instantInk_level instantInk_cyan"></div>
 						</div>
-						<div class="line-ink"><span class="Cmd#cartridge_C_id#"></span></div>
+						<div class="instantInk_line-ink"><span class="Cmd#cartridge_C_id#"></span></div>
 					</div>
-					<div class="col-xs-3 progress-ink">
-						<div class="progress-bar-ink" id="progress-bar-ink_3">
-							<div class="level magenta"></div>
+					<div class="col-xs-3 instantInk_progress-ink">
+						<div class="instantInk_progress-bar-ink" id="instantInk_progress-bar-ink_3">
+							<div class="instantInk_level instantInk_magenta"></div>
 						</div>
-						<div class="line-ink"><span class="Cmd#cartridge_M_id#"></span></div>
+						<div class="instantInk_line-ink"><span class="Cmd#cartridge_M_id#"></span></div>
 					</div>
-					<div class="col-xs-3 progress-ink">
-						<div class="progress-bar-ink" id="progress-bar-ink_4">
-							<div class="level yellow"></div>
+					<div class="col-xs-3 instantInk_progress-ink">
+						<div class="instantInk_progress-bar-ink" id="instantInk_progress-bar-ink_4">
+							<div class="instantInk_level instantInk_yellow"></div>
 						</div>
-						<div class="line-ink"><span class="Cmd#cartridge_Y_id#"></span></div>
+						<div class="instantInk_line-ink"><span class="Cmd#cartridge_Y_id#"></span></div>
 					</div>
 				</div>							
 			</div>
 
 			<!-- Pages -->
 			<div class="col-xs-12" id="tile" style="height:150px; width:372px;">
-				<div class="col-xs-12 progress-container">
-					<div class="col-xs-6 line" style="justify-content: left">
+				<div class="col-xs-12 instantInk_progress-container">
+					<div class="col-xs-6 instantInk_line" style="justify-content: left">
 						<span>{{Pages de l'abonnement}}</span>
 					</div>
-					<div class="col-xs-6 line" style="justify-content: right">
+					<div class="col-xs-6 instantInk_line" style="justify-content: right">
 						<span class="Cmd#billingCycle_page_id#"></span>&nbsp;/&nbsp;<span class="Cmd#currentPlan_page_id#"></span>
 					</div>
-					<div class="progress" id="progress_1">
-						<div class="progress-bar"></div>
+					<div class="instantInk_progress" id="instantInk_progress_1">
+						<div class="instantInk_progress-bar"></div>
 					</div>
 				</div>
-				<div class="col-xs-12 progress-container">
-					<div class="col-xs-6 line" style="justify-content: left">
+				<div class="col-xs-12 instantInk_progress-container">
+					<div class="col-xs-6 instantInk_line" style="justify-content: left">
 						<span>{{Pages de report}}</span><span class="Cmd#currentPlan_rollover_id#"></span>
 					</div>
-					<div class="col-xs-6 line" style="justify-content: right">
+					<div class="col-xs-6 instantInk_line" style="justify-content: right">
 						<span class="Cmd#billingCycle_rollover_id#"></span>&nbsp;/&nbsp;<span class="Cmd#billingCycle_rollovermax_id#"></span>
 					</div>
-					<div class="progress" id="progress_2">
-						<div class="progress-bar"></div>
+					<div class="instantInk_progress" id="instantInk_progress_2">
+						<div class="instantInk_progress-bar"></div>
 					</div>
 				</div>
-				<div class="col-xs-12 progress-container">
-					<div class="col-xs-6 line" style="justify-content: left">
+				<div class="col-xs-12 instantInk_progress-container">
+					<div class="col-xs-6 instantInk_line" style="justify-content: left">
 						<span>{{Pages supplémentaires}}</span>
 					</div>
-					<div class="col-xs-6 line" style="justify-content: right">
+					<div class="col-xs-6 instantInk_line" style="justify-content: right">
 						<span class="Cmd#billingCycle_additional_id#"></span>&nbsp;/&nbsp;<span class="Cmd#currentPlan_additional_id#"></span>
 					</div>
-					<div class="progress" id="progress_3">
-						<div class="progress-bar"></div>
+					<div class="instantInk_progress" id="instantInk_progress_3">
+						<div class="instantInk_progress-bar"></div>
 					</div>
 				</div>
 			</div>
@@ -213,21 +213,21 @@
 			jeedom.cmd.update['#billingCycle_page_id#'] =function(_options) {
 				$('.Cmd#billingCycle_page_id#').empty().append('<span>'+_options.display_value+'</span>');
 				var ratio = parseInt('#billingCycle_page#',10) / parseInt('#currentPlan_page#',10) * 100;
-				$('#progress_1').empty().append('<div class="progress-bar" style="width: '+ratio+'%"></div>');
+				$('#instantInk_progress_1').empty().append('<div class="instantInk_progress-bar" style="width: '+ratio+'%"></div>');
 			}
 			jeedom.cmd.update['#billingCycle_page_id#']({display_value: '#billingCycle_page#'});
 
 			jeedom.cmd.update['#billingCycle_rollover_id#'] =function(_options) {
 				$('.Cmd#billingCycle_rollover_id#').empty().append('<span>'+_options.display_value+'</span>');
 				var ratio = parseInt('#billingCycle_rollover#',10) / parseInt('#billingCycle_rollovermax#',10) * 100;
-				$('#progress_2').empty().append('<div class="progress-bar" style="width: '+ratio+'%"></div>');
+				$('#instantInk_progress_2').empty().append('<div class="instantInk_progress-bar" style="width: '+ratio+'%"></div>');
 			}
 			jeedom.cmd.update['#billingCycle_rollover_id#']({display_value: '#billingCycle_rollover#'});
 
 			jeedom.cmd.update['#billingCycle_additional_id#'] =function(_options) {
 				$('.Cmd#billingCycle_additional_id#').empty().append('<span>'+_options.display_value+'</span>');
 				var ratio = parseInt('#billingCycle_additional#',10) / parseInt('#currentPlan_additional#',10) * 100;
-				$('#progress_3').empty().append('<div class="progress-bar" style="width: '+ratio+'%"></div>');
+				$('#instantInk_progress_3').empty().append('<div class="instantInk_progress-bar" style="width: '+ratio+'%"></div>');
 			}
 			jeedom.cmd.update['#billingCycle_additional_id#']({display_value: '#billingCycle_additional#'});
 
@@ -245,11 +245,11 @@
 			jeedom.cmd.update['#cartridge_K_id#'] =function(_options) {
 				if ( _options.display_value != '' && _options.display_value != null )  {
 					$('.Cmd#cartridge_K_id#').empty().append('<span>'+_options.display_value+'%</span>');
-					$('#progress-bar-ink_1').empty().append('<div class="level black" style="height: '+_options.display_value+'%"></div>');
+					$('#instantInk_progress-bar-ink_1').empty().append('<div class="instantInk_level instantInk_black" style="height: '+_options.display_value+'%"></div>');
 				}
 				else {
 					$('.Cmd#cartridge_K_id#').empty().append('<span>NA</span>');
-					$('#progress-bar-ink_1').empty().append('<div class="level black" style="height: 0%"></div>');
+					$('#instantInk_progress-bar-ink_1').empty().append('<div class="instantInk_level instantInk_black" style="height: 0%"></div>');
 				}
 			}
 			jeedom.cmd.update['#cartridge_K_id#']({display_value: '#cartridge_K#'});
@@ -257,11 +257,11 @@
 			jeedom.cmd.update['#cartridge_C_id#'] =function(_options) {
 				if ( _options.display_value != '' && _options.display_value != null )  {
 					$('.Cmd#cartridge_C_id#').empty().append('<span>'+_options.display_value+'%</span>');
-					$('#progress-bar-ink_2').empty().append('<div class="level cyan" style="height: '+_options.display_value+'%"></div>');
+					$('#instantInk_progress-bar-ink_2').empty().append('<div class="instantInk_level instantInk_cyan" style="height: '+_options.display_value+'%"></div>');
 				}
 				else {
 					$('.Cmd#cartridge_C_id#').empty().append('<span>NA</span>');
-					$('#progress-bar-ink_2').empty().append('<div class="level cyan" style="height: 0%"></div>');
+					$('#instantInk_progress-bar-ink_2').empty().append('<div class="instantInk_level instantInk_cyan" style="height: 0%"></div>');
 				}
 			}
 			jeedom.cmd.update['#cartridge_C_id#']({display_value: '#cartridge_C#'});
@@ -269,11 +269,11 @@
 			jeedom.cmd.update['#cartridge_M_id#'] =function(_options) {
 				if ( _options.display_value != '' && _options.display_value != null )  {
 					$('.Cmd#cartridge_M_id#').empty().append('<span>'+_options.display_value+'%</span>');
-					$('#progress-bar-ink_3').empty().append('<div class="level magenta" style="height: '+_options.display_value+'%"></div>');
+					$('#instantInk_progress-bar-ink_3').empty().append('<div class="instantInk_level instantInk_magenta" style="height: '+_options.display_value+'%"></div>');
 				}
 				else {
 					$('.Cmd#cartridge_M_id#').empty().append('<span>NA</span>');
-					$('#progress-bar-ink_3').empty().append('<div class="level magenta" style="height: 0%"></div>');
+					$('#instantInk_progress-bar-ink_3').empty().append('<div class="instantInk_level instantInk_magenta" style="height: 0%"></div>');
 				}
 			}
 			jeedom.cmd.update['#cartridge_M_id#']({display_value: '#cartridge_M#'});
@@ -281,11 +281,11 @@
 			jeedom.cmd.update['#cartridge_Y_id#'] =function(_options) {
 				if ( _options.display_value != '' && _options.display_value != null )  {
 					$('.Cmd#cartridge_Y_id#').empty().append('<span>'+_options.display_value+'%</span>');
-					$('#progress-bar-ink_4').empty().append('<div class="level yellow" style="height: '+_options.display_value+'%"></div>');
+					$('#instantInk_progress-bar-ink_4').empty().append('<div class="instantInk_level instantInk_yellow" style="height: '+_options.display_value+'%"></div>');
 				}
 				else {
 					$('.Cmd#cartridge_Y_id#').empty().append('<span>NA</span>');
-					$('#progress-bar-ink_4').empty().append('<div class="level yellow" style="height: 0%"></div>');
+					$('#instantInk_progress-bar-ink_4').empty().append('<div class="instantInk_level instantInk_yellow" style="height: 0%"></div>');
 				}
 			}
 			jeedom.cmd.update['#cartridge_Y_id#']({display_value: '#cartridge_Y#'});

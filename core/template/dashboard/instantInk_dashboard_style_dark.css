@@ -51,19 +51,19 @@
     margin : 5px 0px 0px 0px !important;
 }
 
-.progress-container{
+.instantInk_progress-container{
     height : 25px;
 	margin-top : 10px !important;
 	margin-bottom : 10px !important;
 }
 
-.line{
+.instantInk_line{
     display : flex;
     font-size : 12px;
 	padding : 0px 0px 0px 0px !important;
 }
 
-.progress{
+.instantInk_progress{
     width: 100%;
     height: 10px;
     background : rgb(var(--bg-color)) !important;
@@ -72,22 +72,22 @@
     overflow : hidden;
 }
 
-.progress-bar{
+.instantInk_progress-bar{
     height : 10px;
     background : var(--txt-color);
 	border-radius : 5px;
     overflow : hidden;
 }
 
-.progress-container-ink{
+.instantInk_progress-container-ink{
     height : 100px;
 }
 
-.progress-ink{
+.instantInk_progress-ink{
     padding : 5px 0px 0px 5px !important;
 }
 
-.progress-bar-ink{
+.instantInk_progress-bar-ink{
     width : 25px;
     height : 70px;
     border : solid;
@@ -99,13 +99,13 @@
 	filter : contrast(75%);
 }
 
-.level{
+.instantInk_level{
     position : absolute;
     bottom : 0;
     width : 100%;
 }
 
-.black{ 
+.instantInk_black{ 
 	background : linear-gradient(
         to top,
         #000000 0%,
@@ -114,7 +114,7 @@
 	);
 }
 
-.cyan{
+.instantInk_cyan{
 	background : linear-gradient(
         to top,
         #00FFFF 0%,
@@ -123,7 +123,7 @@
 	);
 }
 
-.magenta{
+.instantInk_magenta{
 	background : #FF00FF;
 	background : linear-gradient(
         to top,
@@ -133,7 +133,7 @@
 	);
 }
 
-.yellow{
+.instantInk_yellow{
 	background : #FFFF00;
 	background : linear-gradient(
         to top,
@@ -143,7 +143,7 @@
 	);
 }
 
-.line-ink{
+.instantInk_line-ink{
     width : 30px;
 	margin-top :2px;
 	margin-left : -2px;
