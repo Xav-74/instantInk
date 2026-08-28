@@ -195,7 +195,7 @@ class instantInk_API
         return [
             'has_session'     => !empty($this->shellSessionId),
             'session_expired' => $this->_isSessionExpired(),
-            'session_expires' => $this->shellSessionExpires ? date('d/m/Y', $this->shellSessionExpires) : '?',
+            'session_expires' => $this->shellSessionExpires ? date('d/m/Y H:i', $this->shellSessionExpires) : '?',
             'has_token'       => !empty($this->accessToken),
             'token_expired'   => $this->_isAccessTokenExpired(),
             'token_expires'   => $this->accessTokenExpires ? date('d/m/Y H:i', $this->accessTokenExpires) : '?',
@@ -206,7 +206,7 @@ class instantInk_API
     public function refreshTokens()
     {
         if (!$this->shellSessionId) {
-            log::add('instantInk', 'debug', '| unknown shellSessionId, please reconnect');
+            log::add('instantInk', 'error', '| unknown shellSessionId, please reconnect');
             throw new \Exception('shellSessionId unknown, please reconnect');
         }
 
@@ -222,7 +222,7 @@ class instantInk_API
         log::add('instantInk', 'debug', '| Result refreshTokens() - step 1 : ['.$result->httpCode.'] '.$result->body);
                 
         if ($result->httpCode === 401 || $result->httpCode === 403) {
-            log::add('instantInk', 'debug', '| invalid ou expired shellSessionId, please reconnect');
+            log::add('instantInk', 'error', '| invalid ou expired shellSessionId, please reconnect');
             throw new \Exception('invalid ou expired shellSessionId, please reconnect');
         }
         

@@ -249,7 +249,7 @@ class instantInk extends eqLogic {
 			$cmd->setIsHistorized($isHistorized);
 			if (!empty($template)) { $cmd->setTemplate($template[0], $template[1]); }
 			$cmd->save();
-			log::add('instantInk', 'debug', 'Add command '.$cmd->getName().' (LogicalId : '.$cmd->getLogicalId().')');
+			log::add('instantInk', 'debug', '| Add command '.$cmd->getName().' (LogicalId : '.$cmd->getLogicalId().')');
         }
     }
 	
@@ -262,6 +262,7 @@ class instantInk extends eqLogic {
 		$sessionId = config::byKey('sessionId', 'instantInk');
         if (!$sessionId) {
 			log::add('instantInk', 'debug', '| shellSessionId missing. Please configure the plugin');
+			log::add('instantInk', 'debug', '└─End of connection()');
 			throw new Exception('shellSessionId missing. Please configure the plugin');
 		}
 
@@ -314,6 +315,7 @@ class instantInk extends eqLogic {
 		$sessionId = config::byKey('sessionId', 'instantInk');
         if (!$sessionId) {
 			log::add('instantInk', 'debug', '| shellSessionId missing. Please configure the plugin');
+			log::add('instantInk', 'debug', '└─End of synchronise()');
 			throw new Exception('shellSessionId missing. Please configure the plugin');
 		}
 		
@@ -373,6 +375,7 @@ class instantInk extends eqLogic {
  		$sessionId = config::byKey('sessionId', 'instantInk');
         if (!$sessionId) {
 			log::add('instantInk', 'debug', '| shellSessionId missing. Please configure the plugin');
+			log::add('instantInk', 'debug', '└─End of refreshInstantInkData()');
 			throw new Exception('shellSessionId missing. Please configure the plugin');
 		}
 		$IPaddress = $this->getConfiguration('IPaddress');
@@ -480,6 +483,7 @@ class instantInk extends eqLogic {
 		$sessionId = config::byKey('sessionId', 'instantInk');
         if (!$sessionId) {
 			log::add('instantInk', 'debug', '| shellSessionId missing. Please configure the plugin');
+			log::add('instantInk', 'debug', '└─End of getHistory()');
 			throw new Exception('shellSessionId missing. Please configure the plugin');
 		}
 

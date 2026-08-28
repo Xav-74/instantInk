@@ -132,9 +132,8 @@ if (!isConnect()) {
         });
     };
 
-    $(document).ready(function () {
+    function connectionStatus()  {
 
-        // Connection status
         $.ajax({
             type: 'POST',
             url: 'plugins/instantInk/core/ajax/instantInk.ajax.php',
@@ -158,67 +157,83 @@ if (!isConnect()) {
                     } else if (res.session_expired) {
                         $el.removeClass().addClass('label label-warning').text('{{Session expirée — renouvelez le session Id}}');
                     } else if (res.token_expired) {
-                        $el.removeClass().addClass('label label-warning').text('{{Access token expiré — sera renouvelé automatiquement}}');
+                        $el.removeClass().addClass('label label-warning').text('{{Access token expiré — sera renouvelé automatiquement / Session Id valide jusqu\'au}} ' + res.session_expires);
                     } else {
-                        $el.removeClass().addClass('label label-success').text('{{Connecté — token valide jusqu\'au}} ' + res.token_expires);
+                        $el.removeClass().addClass('label label-success').text('{{Connecté — token valide jusqu\'au}} ' + res.token_expires + '{{ / Session Id valide jusqu\'au}} ' + res.session_expires);
                     }
                 }
             }
         });
+    };
+
+    function connection()  {
+
+        document.getElementById('bt_savePluginConfig').click();
+        var $el = $('#token_status');
+        $el.removeClass().addClass('label label-info').text('{{Test en cours..}}');
+            
+        $.ajax({
+            type: 'POST',
+            url: 'plugins/instantInk/core/ajax/instantInk.ajax.php',
+            data: {
+                action: 'connection'
+            },
+            dataType: 'json',
+            error: function (request, status, error) {
+                handleAjaxError(request, status, error);
+            },
+            success: function (data) {
+                if (data.state === 'ok') {
+                    var res = data.result;
+                    $el.removeClass().addClass('label label-success').text('{{Connexion réussie ! }}' + '{{Compte : }}' + res.email + ' (' + res.firstName + ' ' + res.lastName + ')');
+                } else {
+                    $el.removeClass().addClass('label label-danger').text('{{Erreur}} : ' + data.error);
+                    return;
+                }
+            }            
+        });
+    };
+
+    function resetTokens()   {
+
+        var $el = $('#token_status');
+                        
+        $.ajax({
+            type: 'POST',
+            url: 'plugins/instantInk/core/ajax/instantInk.ajax.php',
+            data: {
+                action: 'resetTokens'
+            },
+            dataType: 'json',
+            error: function (request, status, error) {
+                handleAjaxError(request, status, error);
+            },
+            success: function (data) {
+                if (data.state === 'ok' && data.result['res'] == "OK") {
+                    $el.removeClass().addClass('label label-danger').text('{{Non connecté}}');
+                } else {
+                    $el.removeClass().addClass('label label-danger').text('{{Erreur}} : ' + data.error);
+                    return;
+                }
+            }            
+        });
+    };
+
+
+    $(document).ready(function () {
+
+        // Connection status
+        connectionStatus()
 
         // Connection
         $('#bt_connect').on('click', function () {
-            
-            document.getElementById('bt_savePluginConfig').click();
-            var $el = $('#token_status');
-            $el.removeClass().addClass('label label-info').text('{{Test en cours..}}');
-            
-            $.ajax({
-                type: 'POST',
-                url: 'plugins/instantInk/core/ajax/instantInk.ajax.php',
-                data: {
-                    action: 'connection'
-                },
-                dataType: 'json',
-                error: function (request, status, error) {
-                    handleAjaxError(request, status, error);
-                },
-                success: function (data) {
-                    if (data.state === 'ok') {
-                        var res = data.result;
-                        $el.removeClass().addClass('label label-success').text('{{Connexion réussie ! }}' + '{{Compte : }}' + res.email + ' (' + res.firstName + ' ' + res.lastName + ')');
-                    } else {
-                        $el.removeClass().addClass('label label-danger').text('{{Erreur}} : ' + data.error);
-                        return;
-                    }
-                }            
-            });
+            resetTokens();
+            connection();  
         });
 
         // Reset tokens
         $('#bt_resetTokens').on('click', function () {
-            
-            var $el = $('#token_status');
-                        
-            $.ajax({
-                type: 'POST',
-                url: 'plugins/instantInk/core/ajax/instantInk.ajax.php',
-                data: {
-                    action: 'resetTokens'
-                },
-                dataType: 'json',
-                error: function (request, status, error) {
-                    handleAjaxError(request, status, error);
-                },
-                success: function (data) {
-                    if (data.state === 'ok' && data.result['res'] == "OK") {
-                        $el.removeClass().addClass('label label-danger').text('{{Non connecté}}');
-                    } else {
-                        $el.removeClass().addClass('label label-danger').text('{{Erreur}} : ' + data.error);
-                        return;
-                    }
-                }            
-            });
+            resetTokens();            
         });
     });
 
