@@ -89,7 +89,8 @@
         "Visible": "Visibile"
     },
     "plugins\/instantInk\/plugin_info\/configuration.php": {
-        "Access token expiré — sera renouvelé automatiquement": "Token di accesso scaduto — verrà rinnovato automaticamente",
+        " \/ Session Id valide jusqu\\'au": " \/ ID sessione valido fino al",
+        "Access token expiré — sera renouvelé automatiquement \/ Session Id valide jusqu\\'au": "Token di accesso scaduto — verrà rinnovato automaticamente \/ ID sessione valido fino al",
         "Allez dans l'onglet": "Vai alla scheda",
         "Application": "Applicazione",
         "Appuyez sur": "Premere",
