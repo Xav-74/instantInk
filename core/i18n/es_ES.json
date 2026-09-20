@@ -89,7 +89,8 @@
         "Visible": "Visible"
     },
     "plugins\/instantInk\/plugin_info\/configuration.php": {
-        "Access token expiré — sera renouvelé automatiquement": "Token de acceso caducado — se renovará automáticamente",
+        " \/ Session Id valide jusqu\\'au": " \/ ID de sesión válida hasta el",
+        "Access token expiré — sera renouvelé automatiquement \/ Session Id valide jusqu\\'au": "Token de acceso caducado — se renovará automáticamente \/ ID de sesión válido hasta el",
         "Allez dans l'onglet": "Ve a la pestaña",
         "Application": "Aplicación",
         "Appuyez sur": "Pulsa",

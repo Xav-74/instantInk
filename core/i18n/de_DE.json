@@ -89,7 +89,8 @@
         "Visible": "Sichtbar"
     },
     "plugins\/instantInk\/plugin_info\/configuration.php": {
-        "Access token expiré — sera renouvelé automatiquement": "Zugriffstoken abgelaufen – wird automatisch erneuert",
+        " \/ Session Id valide jusqu\\'au": " \/ Sitzungs-ID gültig bis",
+        "Access token expiré — sera renouvelé automatiquement \/ Session Id valide jusqu\\'au": "Zugriffstoken abgelaufen – wird automatisch erneuert \/ Sitzungs-ID gültig bis",
         "Allez dans l'onglet": "Gehen Sie auf die Registerkarte",
         "Application": "Anwendung",
         "Appuyez sur": "Drücken Sie",
